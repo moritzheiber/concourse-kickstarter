@@ -1,0 +1,32 @@
+# resources:
+#   - name:
+#     type: git
+#     source:
+#       uri: git@github.com:my-org/controller.git
+#       branch: master
+
+jobs:
+- name: hello-world
+  plan:
+  - task: say-hello
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: alpine}
+      run:
+        path: echo
+        args: ["Hello, world!"]
+  - task: sleep
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: alpine}
+      run:
+        path: sh
+        args:
+        - -c
+        - |
+          sleep 11
+          cat /etc/motd

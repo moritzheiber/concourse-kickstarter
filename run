@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -eux -o pipefail
+
+_cleanup() {
+  docker-compose kill
+  docker-compose rm -fv
+
+  rm -rf keys
+}
+
+_start() {
+  trap _cleanup TERM EXIT
+
+  (
+    docker-compose run concourse-keys
+    docker-compose up
+  )
+}
+
+usage() {
+  echo "Usage: $0 start"
+  exit 1
+}
+
+CMD=${1:-}
+shift || true
+case ${CMD} in
+  start) _start ;;
+  *) usage ;;
+esac
