@@ -6,7 +6,7 @@ This repository lets you try out [Concourse CI](https://concourse-ci.org) in a c
 
 - [Docker](https://www.docker.com) >= 18.03.0-ce
 - [Docker Compose](https://github.com/docker/compose/) >= 1.20.1
-- [fly](https://concourse.ci/fly-cli.html) >= 3.10.0
+- [fly](https://concourse.ci/fly-cli.html) >= 3.14.1
 
 ### Installing fly
 

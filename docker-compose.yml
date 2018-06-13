@@ -17,7 +17,7 @@ services:
       - concourse_internal
 
   concourse-web:
-    image: concourse/concourse:3.10.0
+    image: concourse/concourse:3.14.1
     command: web
     depends_on: [concourse-db]
     ports:
@@ -39,7 +39,7 @@ services:
       - concourse_network
 
   concourse-worker:
-    image: concourse/concourse:3.10.0
+    image: concourse/concourse:3.14.1
     privileged: true
     depends_on: [concourse-web]
     command: worker
